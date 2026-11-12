@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rebirth Fitness | Train. Transform. Be Reborn.</title>
+<style>
+:root{--bg:#fafaf7;--surf:#fff;--ink:#17181a;--mut:#5d6168;--acc:#e8541f;--acc2:#1f8a5b;--line:#e4e4de;--hero:#17181a;--herotx:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1012;--surf:#1a1b1e;--ink:#f2f2ee;--mut:#a3a7ad;--line:#2b2d31;--hero:#000;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1012;--surf:#1a1b1e;--ink:#f2f2ee;--mut:#a3a7ad;--line:#2b2d31;--hero:#000;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1,h2,h3{font-family:Impact,"Arial Narrow Bold","Helvetica Neue",Arial,sans-serif;letter-spacing:.02em;line-height:1.1;margin:0 0 .5em;text-transform:uppercase}
+h1{font-size:clamp(2.4rem,7vw,4.6rem)}h2{font-size:clamp(1.7rem,4vw,2.6rem)}h3{font-size:1.25rem}
+a{color:inherit}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{max-width:1100px;margin:auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font:1.5rem Impact,Arial,sans-serif;text-transform:uppercase;text-decoration:none;letter-spacing:.04em}.logo b{color:var(--acc)}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav a{text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600;font-size:.95rem;color:var(--mut)}
+nav a:hover,nav a.on{color:var(--ink);background:var(--surf)}nav a.on{color:var(--acc)}
+#burger{display:none;background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:8px 12px;font-size:1.1rem;cursor:pointer}
+@media(max-width:760px){#burger{display:block}nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:10px 20px 16px;border-bottom:1px solid var(--line)}nav.open{display:flex}}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+main{max-width:1100px;margin:auto;padding:0 20px}
+.page{display:none;padding:40px 0 60px;animation:f .35s}.page.on{display:block}
+@keyframes f{from{opacity:0;transform:translateY(8px)}to{opacity:1}}
+.hero{background:linear-gradient(135deg,var(--hero),#2a1308 70%,var(--acc));color:var(--herotx);border-radius:20px;padding:clamp(28px,6vw,72px);margin-bottom:32px;position:relative;overflow:hidden}
+.hero p{max-width:540px;font-size:1.1rem;opacity:.9}
+.hero .big{position:absolute;right:-10px;bottom:-30px;font-size:12rem;opacity:.12;line-height:1}
+.btn{display:inline-block;background:var(--acc);color:#fff;border:0;padding:13px 24px;border-radius:10px;font-weight:700;text-decoration:none;cursor:pointer;font-size:1rem;margin:4px 8px 4px 0}
+.btn.ghost{background:transparent;border:2px solid currentColor}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card .ic{font-size:2rem}.card p{color:var(--mut);margin:.3em 0 0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px;margin:32px 0;text-align:center}
+.stats b{display:block;font:2.4rem Impact,Arial,sans-serif;color:var(--acc)}
+.tag{display:inline-block;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--acc2);margin-bottom:6px}
+.sub{color:var(--mut);max-width:620px}
+.sec{margin-top:44px}
+.av{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--acc),#f2a65a);display:grid;place-items:center;font:1.8rem Impact,Arial;color:#fff;margin-bottom:12px}
+.price{font:2.6rem Impact,Arial,sans-serif}.price small{font:1rem system-ui;color:var(--mut)}
+.plan.pop{border:2px solid var(--acc);position:relative}
+.plan ul{padding-left:18px;color:var(--mut)}
+table{width:100%;border-collapse:collapse;background:var(--surf);border-radius:12px;overflow:hidden}
+td,th{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line)}th{background:var(--line)}
+.scroll{overflow-x:auto}
+input,select,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--surf);color:var(--ink);font:inherit;margin:4px 0 12px}
+label{font-weight:600;font-size:.9rem}
+.res{margin-top:8px;padding:14px;border-radius:10px;background:var(--bg);border:1px dashed var(--acc);display:none}
+article.card h3{margin-top:6px}
+details{margin-bottom:10px}summary{cursor:pointer;font-weight:600}
+footer{border-top:1px solid var(--line);padding:30px 20px;text-align:center;color:var(--mut);font-size:.9rem}
+footer a{margin:0 8px;font-weight:600}
+</style>
+</head>
+<body>
+<header><div class="bar">
+<a class="logo" href="#home">Re<b>birth</b> Fitness</a>
+<button id="burger" aria-label="Menu">☰</button>
+<nav id="nav"><a href="#home">Home</a><a href="#programs">Programs</a><a href="#trainers">Trainers</a><a href="#membership">Membership</a><a href="#journal">Journal</a><a href="#contact">Contact</a></nav>
+</div></header>
+<main>
+
+<section class="page" id="p-home">
+<div class="hero"><span class="big">🔥</span>
+<span class="tag" style="color:#ffb48f">Bengaluru’s transformation studio</span>
+<h1>Train hard.<br>Be reborn.</h1>
+<p>Rebirth Fitness is a modern gym and coaching studio built for people who want real, lasting change: stronger bodies, sharper minds and habits that stick.</p>
+<a class="btn" href="#membership">Join Now</a><a class="btn ghost" href="#contact">Book a Free Trial</a></div>
+<div class="stats"><div><b>1,200+</b>Members reborn</div><div><b>25</b>Expert coaches</div><div><b>40+</b>Weekly classes</div><div><b>6am–11pm</b>Open daily</div></div>
+<h2>Why Rebirth?</h2>
+<div class="grid">
+<div class="card"><div class="ic">🏋️</div><h3>Smart strength zone</h3><p>Olympic racks, free weights and guided machines for every level.</p></div>
+<div class="card"><div class="ic">🧠</div><h3>Personal plans</h3><p>Body assessment, goals and a progress tracker from day one.</p></div>
+<div class="card"><div class="ic">🥗</div><h3>Nutrition support</h3><p>Practical Indian meal guidance from certified dietitians.</p></div>
+<div class="card"><div class="ic">🤝</div><h3>Real community</h3><p>Challenges, group sessions and people who push you forward.</p></div>
+</div>
+<div class="sec card"><span class="tag">Our story</span><h2>A fresh start, every day</h2>
+<p class="sub">Rebirth Fitness began with a simple belief: nobody is “out of shape forever”. We combine science-backed training, friendly coaching and a no-judgement culture so every member can restart, rebuild and keep going.</p>
+<a class="btn" href="#programs">Explore Programs</a></div>
+<div class="sec"><h2>Member voices</h2><div class="grid">
+<div class="card"><p>“Lost 11 kg in 5 months and finally enjoy mornings.”</p><b>Ananya R., Software Engineer</b></div>
+<div class="card"><p>“The coaches actually notice your form. Best gym I have joined.”</p><b>Karthik S., MBA Student</b></div>
+<div class="card"><p>“Zumba and strength classes fit around my busy schedule.”</p><b>Meera P., Entrepreneur</b></div></div></div>
+</section>
+
+<section class="page" id="p-programs">
+<span class="tag">What we offer</span><h1>Programs</h1><p class="sub">Choose a path that fits your goal. Every program includes a coach-led onboarding session.</p>
+<div class="grid sec">
+<div class="card"><div class="ic">💪</div><h3>Strength &amp; Muscle</h3><p>Progressive lifting blocks for size and power.</p></div>
+<div class="card"><div class="ic">🔥</div><h3>Fat Loss Burn</h3><p>HIIT plus nutrition coaching for steady weight loss.</p></div>
+<div class="card"><div class="ic">🧘</div><h3>Yoga &amp; Mobility</h3><p>Flexibility, posture and stress relief.</p></div>
+<div class="card"><div class="ic">💃</div><h3>Zumba &amp; Dance</h3><p>High-energy cardio that feels like a party.</p></div>
+<div class="card"><div class="ic">🥊</div><h3>Boxing &amp; Conditioning</h3><p>Pad work, bag drills and stamina building.</p></div>
+<div class="card"><div class="ic">🌱</div><h3>Beginner Reset</h3><p>A gentle 8-week start for first-timers.</p></div>
+</div>
+<h2 class="sec">Weekly class timetable</h2>
+<div class="scroll"><table><tr><th>Time</th><th>Mon / Wed / Fri</th><th>Tue / Thu</th><th>Sat</th></tr>
+<tr><td>6:30 AM</td><td>Strength</td><td>Yoga</td><td>HIIT</td></tr>
+<tr><td>9:00 AM</td><td>Zumba</td><td>Mobility</td><td>Boxing</td></tr>
+<tr><td>6:00 PM</td><td>Fat Loss Burn</td><td>Boxing</td><td>Beginner Reset</td></tr>
+<tr><td>7:30 PM</td><td>HIIT</td><td>Strength</td><td>Zumba</td></tr></table></div>
+<div class="sec"><a class="btn" href="#contact">Reserve a Class</a></div>
+</section>
+
+<section class="page" id="p-trainers">
+<span class="tag">Meet the team</span><h1>Our Coaches</h1><p class="sub">Certified, experienced and genuinely invested in your progress.</p>
+<div class="grid sec">
+<div class="card"><div class="av">AR</div><h3>Arjun Rao</h3><b>Head Strength Coach</b><p>10 years’ experience. Specialises in powerlifting and injury-safe training.</p></div>
+<div class="card"><div class="av">PN</div><h3>Priya Nair</h3><b>Yoga &amp; Mobility</b><p>RYT-500 yoga teacher focused on posture, breath and recovery.</p></div>
+<div class="card"><div class="av">SK</div><h3>Sameer Khan</h3><b>Boxing &amp; HIIT</b><p>State-level boxer turned conditioning coach.</p></div>
+<div class="card"><div class="av">DM</div><h3>Divya Menon</h3><b>Nutritionist</b><p>Builds simple, affordable Indian meal plans for your goals.</p></div>
+</div>
+<div class="sec card"><h2>Free fitness assessment</h2><p class="sub">Meet a coach, test your baseline and get a 4-week starter plan.</p><a class="btn" href="#contact">Book Assessment</a></div>
+</section>
+
+<section class="page" id="p-membership">
+<span class="tag">Simple pricing</span><h1>Membership</h1><p class="sub">No hidden fees. Cancel or freeze any time.</p>
+<div class="grid sec">
+<div class="card plan"><h3>Starter</h3><div class="price">₹1,499<small>/month</small></div><ul><li>Gym floor access</li><li>2 group classes / week</li><li>Locker &amp; shower</li></ul><a class="btn" href="#contact">Choose Starter</a></div>
+<div class="card plan pop"><span class="tag">Most popular</span><h3>Transform</h3><div class="price">₹2,499<small>/month</small></div><ul><li>Unlimited classes</li><li>Monthly body assessment</li><li>Diet guidance</li></ul><a class="btn" href="#contact">Choose Transform</a></div>
+<div class="card plan"><h3>Elite</h3><div class="price">₹4,999<small>/month</small></div><ul><li>Personal trainer (8 sessions)</li><li>Custom nutrition plan</li><li>Priority booking</li></ul><a class="btn" href="#contact">Choose Elite</a></div>
+</div>
+<div class="sec card"><h2>Pick your duration</h2>
+<label for="dur">Plan length</label>
+<select id="dur"><option value="0">Monthly (no discount)</option><option value="10">Quarterly (10% off)</option><option value="20">Yearly (20% off)</option></select>
+<button class="btn" id="cdisc">See Transform price</button><div class="res" id="dres"></div></div>
+<div class="sec"><h2>FAQs</h2>
+<details><summary>Is there a joining fee?</summary><p class="sub">No. The first-day assessment is free.</p></details>
+<details><summary>Can students get a discount?</summary><p class="sub">Yes, show a valid college ID for a special student rate.</p></details>
+<details><summary>Can I freeze my membership?</summary><p class="sub">Yes, up to 30 days per year at no charge.</p></details></div>
+</section>
+
+<section class="page" id="p-journal">
+<span class="tag">Learn &amp; grow</span><h1>The Rebirth Journal</h1><p class="sub">Practical articles from our coaches.</p>
+<div class="grid sec">
+<article class="card"><span class="tag">Training</span><h3>5 beginner mistakes to avoid</h3><p>Skipping warm-ups, ego lifting and ignoring sleep top the list. Start light, learn the form, and add weight slowly.</p></article>
+<article class="card"><span class="tag">Nutrition</span><h3>Eating well on an Indian diet</h3><p>Dal, curd, paneer, eggs and millets make excellent protein sources. Aim for protein at every meal and keep portions balanced.</p></article>
+<article class="card"><span class="tag">Mindset</span><h3>Consistency beats intensity</h3><p>Three sessions a week for a year beats thirty days of extremes. Build a routine you can keep during exams and busy months.</p></article>
+<article class="card"><span class="tag">Wellness</span><h3>Desk-job posture reset</h3><p>Hip openers, thoracic stretches and a short walk every hour relieve stiffness from long sitting hours.</p></article>
+</div>
+<div class="sec card"><h2>BMI calculator</h2>
+<div class="grid"><div><label for="h">Height (cm)</label><input id="h" type="number" placeholder="170"></div><div><label for="w">Weight (kg)</label><input id="w" type="number" placeholder="65"></div></div>
+<button class="btn" id="bmi">Calculate</button><div class="res" id="bres"></div>
+<p class="sub" style="font-size:.85rem">A general guide only, not medical advice.</p></div>
+</section>
+
+<section class="page" id="p-contact">
+<span class="tag">Say hello</span><h1>Contact</h1><p class="sub">Book a free trial or ask us anything.</p>
+<div class="grid sec">
+<div class="card"><h3>Send a message</h3>
+<form id="cf" onsubmit="return false">
+<label for="n">Name</label><input id="n" required>
+<label for="e">Email or phone</label><input id="e" required>
+<label for="g">Goal</label><select id="g"><option>Weight loss</option><option>Muscle gain</option><option>General fitness</option><option>Yoga &amp; wellness</option></select>
+<label for="m">Message</label><textarea id="m" rows="3"></textarea>
+<button class="btn" id="send" type="button">Request Free Trial</button></form><div class="res" id="cres"></div></div>
+<div class="card"><h3>Visit us</h3><p>📍 Rebirth Fitness, Bengaluru, Karnataka</p><p>🕒 Mon–Sun: 6:00 AM – 11:00 PM</p><p>📞 +91 90000 00000</p><p>✉️ hello@rebirthfitness.example</p>
+<h3 style="margin-top:20px">Follow us</h3>
+<a class="btn ghost" href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a><a class="btn ghost" href="https://www.youtube.com" target="_blank" rel="noopener">YouTube</a><a class="btn ghost" href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a></div>
+</div>
+</section>
+
+</main>
+<footer>
+<p><b>Rebirth Fitness</b> · Train. Transform. Be reborn.</p>
+<p><a href="#home">Home</a><a href="#programs">Programs</a><a href="#trainers">Trainers</a><a href="#membership">Membership</a><a href="#journal">Journal</a><a href="#contact">Contact</a></p>
+<p>© 2026 Rebirth Fitness. Created as a class project.</p>
+</footer>
+<script>
+var names=["home","programs","trainers","membership","journal","contact"];
+function show(){var h=(location.hash||"#home").slice(1);if(names.indexOf(h)<0)h="home";
+names.forEach(function(n){document.getElementById("p-"+n).classList.toggle("on",n===h)});
+document.querySelectorAll("nav a").forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+h)});
+document.getElementById("nav").classList.remove("open");window.scrollTo(0,0)}
+window.addEventListener("hashchange",show);show();
+document.getElementById("burger").onclick=function(){document.getElementById("nav").classList.toggle("open")};
+document.getElementById("cdisc").onclick=function(){var d=+document.getElementById("dur").value,m=2499*(1-d/100),r=document.getElementById("dres");
+r.style.display="block";r.textContent="Transform plan: ₹"+Math.round(m).toLocaleString("en-IN")+" per month"+(d?" (you save "+d+"%)":"")+"."};
+document.getElementById("bmi").onclick=function(){var h=+document.getElementById("h").value/100,w=+document.getElementById("w").value,r=document.getElementById("bres");r.style.display="block";
+if(!h||!w){r.textContent="Please enter both height and weight.";return}
+var b=w/(h*h),c=b<18.5?"underweight":b<25?"in the healthy range":b<30?"overweight":"in the obese range";
+r.textContent="Your BMI is "+b.toFixed(1)+" ("+c+"). Book a free assessment for a personal plan."};
+document.getElementById("send").onclick=function(){var n=document.getElementById("n").value.trim(),e=document.getElementById("e").value.trim(),r=document.getElementById("cres");r.style.display="block";
+r.textContent=(n&&e)?"Thanks "+n+"! We’ll contact you within 24 hours to confirm your free trial.":"Please fill in your name and contact details."};
+</script>
+</body>
+</html>
